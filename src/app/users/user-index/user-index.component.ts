@@ -1,38 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UserService } from 'src/app/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-index',
   templateUrl: './user-index.component.html',
   styleUrls: ['./user-index.component.css']
 })
-export class UserIndexComponent implements OnInit {
+export class UserIndexComponent implements OnInit, OnDestroy {
 
   users: object[];
 
-  constructor() {
-    this.users = [
-      {
-        id: 1,
-        username: 'Levente',
-        password: 'secret',
-        email: 'szekely.levi01@gmail.com'
-      },
-      {
-        id: 2,
-        username: 'Tamás',
-        password: 'oldTown',
-        email: 'thomas@gmail.com'
-      },
-      {
-        id: 3,
-        username: 'Emília',
-        password: 'emily34',
-        email: 'emily@gmail.com'
-      }
-    ];
-  }
+  private subscriptions: Subscription[] = [];
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.subscriptions.push(
+      this.userService.index().subscribe(response => {
+        this.users = response;
+      })
+    );
   }
 
+  public ngOnDestroy(): void {
+    this.subscriptions.forEach(subsctiption => subsctiption.unsubscribe());
+  }
 }
