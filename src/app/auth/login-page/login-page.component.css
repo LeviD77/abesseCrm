@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}

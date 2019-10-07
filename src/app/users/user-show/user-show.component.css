@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.page {
+  width: 100%;
+}
+
+.profile-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar {
+  height: 100%;
+  width: 200px;
+  border-radius: 50%;
+  margin: 50px 0;
+}
+
+.profile-name {
+  margin-bottom: 2px;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.4);
+}

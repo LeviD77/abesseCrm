@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './general/navbar/navbar.component';
 import { UserIndexComponent } from './users/user-index/user-index.component';
 import { UserShowComponent } from './users/user-show/user-show.component';
+import { AuthModule } from './auth/auth.module';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { UserShowComponent } from './users/user-show/user-show.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

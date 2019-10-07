@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 export interface IHttpRequest {
   headers?: HttpHeaders;
@@ -15,11 +16,9 @@ export interface IHttpRequest {
   providedIn: 'root'
 })
 export class AbesseHttpClientService {
-  public constructor(
-    public http: HttpClient
-  ) { }
+  private api: string = environment.apiUrl;
 
-  private api = 'http://localhost:3000';
+  public constructor(public http: HttpClient) {}
 
   public get<T>(endPoint: string, options?: IHttpRequest): Observable<T> {
     return this.http.get<T>(this.api + endPoint, options);
