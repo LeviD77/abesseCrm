@@ -1,8 +1,17 @@
-<div class="page">
+<app-navbar></app-navbar>
+<div class="page" *ngIf="user$ | async as user">
   <div class="box">
-    <h1 class="title">User show</h1>
+    <h1 class="title">User details</h1>
     <div class="content">
-      {{ user | json }}
+      <div class="profile-top">
+        <img
+          class="profile-avatar"
+          src="https://placehold.it/100"
+          alt="{{ user.username }}"
+        />
+        <h2 class="profile-name">{{ user.username }}</h2>
+        <span class="profile-email">{{ user.email }}</span>
+      </div>
     </div>
   </div>
 </div>

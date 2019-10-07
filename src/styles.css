@@ -32,3 +32,35 @@ body {
 .box .content {
   min-width: 100%;
 }
+
+.message.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #5a5c69;
+  border-color: #5a5c69;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+input[type='text'],
+input[type='password'] {
+  outline: none;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #5a5c69;
+  min-width: 240px;
+  border-radius: 5px;
+}
